@@ -1,2 +1,9 @@
-﻿
+﻿<link href="/notyf/notyf.min.css" rel="stylesheet" />
+<script src="/notyf/notyf.min.js"></script>
+
+
+
 @RenderBody();
+
+@await Component.InvokeAsync("Notyf")
+@await RenderSectionAsync("Scripts", required:false)

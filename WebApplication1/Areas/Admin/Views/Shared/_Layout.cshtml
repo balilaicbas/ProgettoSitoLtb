@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿    @using Microsoft.AspNetCore.Identity
+    @using WebApplication1.Models
+    @model WebApplication1.Models.ApplicationUser
+    @inject UserManager<ApplicationUser> _userManager
+
+@{
+    var loggedInUser = new ApplicationUser();
+    loggedInUser = _userManager.Users?.FirstOrDefault(x => x.UserName == User.Identity!.Name);
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -338,7 +349,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @loggedInUser.FirstName @loggedInUser.LastName 
+                                    </span>
                                 <img class="img-profile rounded-circle"
                                      src="img/undraw_profile.svg">
                             </a>
@@ -358,10 +371,11 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <form asp-action="Logout" asp-controller="User" asp-area="Admin" method="post"></form>
+                                <button type="submit "class="dropdown-item">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
-                                </a>
+                                </button>
                             </div>
                         </li>
 
@@ -413,14 +427,14 @@
             </div>
         </div>
     </div>
-
+    @await Component.InvokeAsync("Notyf")
     <!-- Bootstrap core JavaScript-->
     <script src="~/dasboard/vendor/jquery/jquery.min.js"></script>
     <script src="~/dasboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="~/dasboard/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script src="~/dasboard/vendor/jquery-easing/jquery.easing.min.js"></script>    
+    
     <!-- Custom scripts for all pages-->
     <script src="~/dasboard/js/sb-admin-2.min.js"></script>
 
@@ -431,6 +445,7 @@
     <script src="~/dasboard/js/demo/chart-area-demo.js"></script>
     <script src="~/dasboard/js/demo/chart-pie-demo.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("Notyf")
 </body>
 
 </html>
