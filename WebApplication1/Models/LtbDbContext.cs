@@ -15,47 +15,43 @@ public partial class LtbDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Agonisti> Agonistis { get; set; }
+    public virtual DbSet<Agonisti> Agonisti { get; set; }
 
-    public virtual DbSet<Allievi> Allievis { get; set; }
+    public virtual DbSet<Allievi> Allievi { get; set; }
 
-    public virtual DbSet<AnnoAgonistico> AnnoAgonisticos { get; set; }
+    public virtual DbSet<AnnoAgonistico> AnnoAgonistico { get; set; }
 
-    public virtual DbSet<ClasseAllievo> ClasseAllievos { get; set; }
+    public virtual DbSet<ClasseAllievo> ClasseAllievo { get; set; }
 
-    public virtual DbSet<ClasseLavoratore> ClasseLavoratores { get; set; }
+    public virtual DbSet<ClasseLavoratore> ClasseLavoratore { get; set; }
 
-    public virtual DbSet<Classi> Classis { get; set; }
+    public virtual DbSet<Classi> Classi { get; set; }
 
-    public virtual DbSet<ControlliRicorrenti> ControlliRicorrentis { get; set; }
+    public virtual DbSet<ControlliRicorrenti> ControlliRicorrenti { get; set; }
 
-    public virtual DbSet<Cooperazioni> Cooperazionis { get; set; }
+    public virtual DbSet<Cooperazioni> Cooperazioni { get; set; }
 
-    public virtual DbSet<Eventi> Eventis { get; set; }
+    public virtual DbSet<Eventi> Eventi { get; set; }
 
-    public virtual DbSet<Lavoratori> Lavoratoris { get; set; }
+    public virtual DbSet<Lavoratori> Lavoratori { get; set; }
 
-    public virtual DbSet<Partecipanti> Partecipantis { get; set; }
+    public virtual DbSet<Partecipanti> Partecipanti { get; set; }
 
-    public virtual DbSet<Persone> Persones { get; set; }
+    public virtual DbSet<Persone> Persone { get; set; }
 
-    public virtual DbSet<Poli> Polis { get; set; }
+    public virtual DbSet<Poli> Poli { get; set; }
 
-    public virtual DbSet<PoloScuola> PoloScuolas { get; set; }
+    public virtual DbSet<PoloScuola> PoloScuola { get; set; }
 
-    public virtual DbSet<RealtaEsternaPersona> RealtaEsternaPersonas { get; set; }
+    public virtual DbSet<RealtaEsternaPersona> RealtaEsternaPersona { get; set; }
 
-    public virtual DbSet<RealtaEsterne> RealtaEsternes { get; set; }
+    public virtual DbSet<RealtaEsterne> RealtaEsterne { get; set; }
 
-    public virtual DbSet<Scuole> Scuoles { get; set; }
+    public virtual DbSet<Scuole> Scuole { get; set; }
 
-    public virtual DbSet<Soci> Socis { get; set; }
+    public virtual DbSet<Soci> Soci { get; set; }
 
-    public virtual DbSet<SocioPolo> SocioPolos { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=aspettaespera;Database=LtbDb;Trusted_Connection=True;TrustServerCertificate=True");
+    public virtual DbSet<SocioPolo> SocioPolo { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
