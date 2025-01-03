@@ -2,7 +2,7 @@
 {
     public interface IDbInizializer
     {
-        void initialize();
+        void Initialize();
 
 
     }
